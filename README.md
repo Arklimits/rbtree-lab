@@ -1,3 +1,33 @@
+***********
+# [WEEK04] 탐험준비 - Red-Black Tree
+📢 “정글끝까지 가기 전에, 준비운동을 하며 필수 스킬을 익혀봅시다!”
+
+지난 3주간은 고급 언어인 Python 언어로 가변 리스트, 우선순위 큐와 같은 추상화된 데이터 타입 (abstract data type)을 사용하여 컴퓨터를 다루는 방법을 익혔습니다. 이번 3주간은 Assembly 언어와 매우 가까운 C언어를 사용하여 좀 더 컴퓨터의 본질에 가까이 가 봅시다.
+3주간 각 1주차 씩 Red-Black tree → malloc → 웹 proxy 서버를 C언어로 구현하면서, C언어 포인터의 개념, gdb 디버거 사용법 등을 익혀봅니다. 또한, Segmentation fault 등 새로운 에러들을 마주해봅니다! 🙂
+알고리즘(CLRS), 컴퓨터 시스템(CS:APP) 교재를 참고하여 진행합니다.
+RB tree - CLRS 13장, malloc - CS:APP 9장, 웹서버 - CS:APP 11장
+
+***********
+💡 Ubuntu 22.04 LTS (x86_64)환경을 사용합니다.
+
+개발 환경 설치
+```ubuntu
+sudo apt update                         # package list update
+sudo apt upgrade                        # upgrade packages
+sudo apt install gcc make valgrind gdb  # gcc, make 등 개발 환경 설치
+```
+
+GitHub 토큰 관리를 위한 gh 설치 
+```
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
+```
+*(컨테이너에 GitHub Cli를 추가적으로 설치해놓기는 함)*
+
+**********************************
 # Red-Black Tree 구현
 
 Balanced search tree로 많이 쓰이는 Red-black tree (이하 RB tree)를 C 언어로 구현하는 과제입니다.
